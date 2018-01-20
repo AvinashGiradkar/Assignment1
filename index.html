@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lunch Checker</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"> </script>
+  <script src ="app.js"> </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <style>
+  .message { font-size: 1.3em; font-weight: bold; }
+  </style>
+</head>
+<body ng-app="LunchCheck">
+  <form class="form-horizontal rows" ng-submit="calculate();" ng-controller="LunchCheckController">
+    <div  class="well well-lg">
+      <h1>Lunch Checker</h1>
+      <input type="text"  class="form-control"  ng-model="lunchItems" placeholder="list comma separated dishes you usually have for lunch"/>
+      <div>
+        <span class="label label-default">Empty item i.e. ',,' is not counted</span>
+      </div>
+    </br>
+    <div class="form-group message">
+      <span class="alert alert-info" ng-show="isNoData">Please enter data first</span>
+      <span class="alert alert-success" ng-show="isSucess">Enjoy!</span>
+      <span class="alert alert-danger" ng-show="isError">Too much!</span>
+    </div>
+  </br>
+  <button type="submit" class="btn btn-primary">Check If Too Much</button>
+</div>
+</form>
+</body>
+</html>
